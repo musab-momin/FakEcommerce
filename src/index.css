@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root{
+  --primary-clr: #00a0c6;
+}
 
 *{
   margin: 0;
@@ -9,6 +12,22 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: #ecf1f4;
+  background: #ffff;
   color: #121212;
+}
+
+.ml-1{
+  margin-left: 10px;
+}
+
+.ml-2{
+  margin-left: 20px;
+}
+
+.primary-clr{
+  color: var(--primary-clr);
+}
+
+.green-clr{
+  color: green;
 }
