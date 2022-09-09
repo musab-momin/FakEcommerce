@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GlobalContext } from '../../context/global.context';
 import Record from './Record';
 import './table.css';
 
 const Table = () => {
-  const { data, dispatch } = GlobalContext();
-  const [checkedState, setCheckedState] = useState(
-    new Array(data.length).fill({ amount: '', selected: false })
-  );
+  const { data, dispatch, checkedState, setCheckedState } = GlobalContext();
+ 
 
   const handleRemove = (position)=>{
     dispatch({ type: 'removeToCart', payload: [position, checkedState[position].amount] });
@@ -44,6 +42,9 @@ const Table = () => {
     const updatedState = checkedState.map((entry, index) => {
       if (index === position) {
         if (value <= data[position].quantity && value !== '0') {
+          checkedState[position].selected = false
+          // eslint-disable-next-line no-unused-expressions
+          checkedState[position].amount ? dispatch({ type: 'removeToCart', payload: [position, checkedState[position].amount] }) : null
           return { ...entry, amount: value };
           // eslint-disable-next-line no-else-return
         } else {

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 import { reducer } from "./reducer";
 import { data } from '../misc/dummy.data';
 
@@ -16,8 +16,12 @@ const initial = {
 export const GlobalProvider = ({ children })=>{
 
     const [state, dispatch] = useReducer(reducer, initial);
+    const [checkedState, setCheckedState] = useState(
+        new Array(data.length).fill({ amount: '', selected: false })
+    );
 
-    return <customContext.Provider  value={{ ...state, dispatch }}>
+
+    return <customContext.Provider  value={{ ...state, dispatch, checkedState, setCheckedState }}>
         { children }
     </customContext.Provider>
 }

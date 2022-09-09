@@ -2,7 +2,7 @@ import { data } from "../misc/dummy.data"
 
 
 export const reducer = (prevState, action) =>{
-
+    // for filter category change
     if(action.type === "onTypeChange"){
         prevState.type = action.payload
         if(prevState.size !== 'size'){
@@ -15,6 +15,7 @@ export const reducer = (prevState, action) =>{
         return { ...prevState }
     }
     
+    // for filter size change
     if(action.type === "onSizeChange"){
         prevState.size = action.payload
         if(prevState.type !== 'select'){
@@ -26,6 +27,7 @@ export const reducer = (prevState, action) =>{
         return { ...prevState }
     }
 
+    // for filter clear
     if(action.type === "onClearFilter"){
         prevState.type = "select"
         prevState.size = "size"
@@ -33,6 +35,7 @@ export const reducer = (prevState, action) =>{
         return {...prevState}
     }
 
+    // for input search change
     if(action.type === "onQueryChange"){
         prevState.searchQuery = action.payload;
         // clearing active filters on search
@@ -44,6 +47,7 @@ export const reducer = (prevState, action) =>{
         return {...prevState}
     }
 
+    // adding item in cart on checkbox checked
     if(action.type === 'addToCart'){
 
         const id = (action.payload[0]+1) + 100
@@ -67,6 +71,7 @@ export const reducer = (prevState, action) =>{
         return {...prevState}
     }
 
+    // adding item in cart on checkbox unchecked
     if(action.type === 'removeToCart'){
         const id = (action.payload[0]+1) + 100
         const amount = parseInt(action.payload[1], 10)
@@ -86,6 +91,7 @@ export const reducer = (prevState, action) =>{
         return {...prevState}
     }
 
+    // on remove item from checkout page
     if(action.type === 'removeFromCart'){
         const filteredCart = prevState.cart.filter(item => item.id !== action.payload[0]);
         prevState.cart = filteredCart
@@ -105,6 +111,7 @@ export const reducer = (prevState, action) =>{
         return {...prevState}
     }
 
+    // change quantity of cart item icrease/decrease
     if(action.type === 'toggleQuantity'){
         const [id, flag] = action.payload
         prevState.cart = prevState.cart.map(item=>{
@@ -132,6 +139,7 @@ export const reducer = (prevState, action) =>{
         return { ...prevState }
     }
 
+    // on thank you page clear the cart
     if(action.type === 'CLEARCART'){
         prevState.cart = []
         return {...prevState}

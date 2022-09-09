@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { GlobalContext } from '../../context/global.context';
+import { data } from '../../misc/dummy.data';
 import Item from './Item';
 import './shoppingbag.css';
 
 const ShoppingBag = () => {
-  const { cart, totalBill } = GlobalContext();
+  const { cart, totalBill, setCheckedState } = GlobalContext();
 
   return (
     <main className="main">
@@ -45,7 +46,7 @@ const ShoppingBag = () => {
             <strong>${totalBill}</strong>{' '}
           </p>
         </div>
-        <Link to="/end" className="end">
+        <Link to="/end" className="end" onClick={()=>{ setCheckedState(new Array(data.length).fill({ amount: '', selected: false }) ) }}>
           {' '}
           Proceed To Checkout{' '}
         </Link>
