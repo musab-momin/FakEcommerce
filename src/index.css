@@ -24,6 +24,10 @@ body {
   margin-left: 20px;
 }
 
+.ml-3{
+  margin-left: 30px;
+}
+
 .primary-clr{
   color: var(--primary-clr);
 }
@@ -31,3 +35,19 @@ body {
 .green-clr{
   color: green;
 }
+.flex-center{
+  display: flex;
+  align-items: center;
+}
+
+.container{
+  width: 50%;
+  height: 300px;
+  margin: 3em auto;
+  display: grid;
+  place-items: center;
+}
+.container > p{
+  text-align: center;
+}
+

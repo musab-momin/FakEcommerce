@@ -9,7 +9,8 @@ const initial = {
     size: 'size',
     searchQuery: '',
     data,
-    cart: []
+    cart: [],
+    totalBill: 0
 }
 
 export const GlobalProvider = ({ children })=>{
