@@ -1,10 +1,15 @@
 import React from "react";
+import { Route, Routes } from "react-router";
+import Checkout from "./pages/Checkout";
+import Home from "./pages/Home";
+
 
 function App() {
   return (
-    <div className="App">
-     <h2>Hello world...</h2>
-    </div>
+    <Routes>
+      <Route exact path="/" element={ <Home /> } />
+      <Route exact path="/checkout" element={ <Checkout /> } />
+    </Routes>
   );
 }
 
