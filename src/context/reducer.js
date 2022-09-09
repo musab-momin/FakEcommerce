@@ -15,6 +15,7 @@ export const reducer = (prevState, action) =>{
         return { ...prevState }
     }
     
+    
     // for filter size change
     if(action.type === "onSizeChange"){
         prevState.size = action.payload
