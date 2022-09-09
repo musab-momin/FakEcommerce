@@ -1,8 +1,9 @@
 import React from 'react'
+import ShoppingBag from '../components/shoppingbag'
 
 const Checkout = () => {
   return (
-    <div>Checkout</div>
+    <ShoppingBag />
   )
 }
 
